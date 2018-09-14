@@ -3,7 +3,7 @@ var topics = ["Space", "Technology", "Medicine", "Biology", "Meme", "Jim Carrey"
 function displayTopicGif() {
     var topic = $(this).attr("data-name");
     // query url
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&limit=20&rating=r&api_key=DoSOiDmEY8zysuwDHj4UEBXYkBH3J4ah";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&limit=10&rating=r&api_key=DoSOiDmEY8zysuwDHj4UEBXYkBH3J4ah";
 
     $.ajax({
         url: queryURL,

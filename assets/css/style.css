@@ -7,5 +7,20 @@ h1 {
 }
 
 .gif-border {
-    border: 3px solid black;
+    border: 1px solid white;
 }
+body {
+    background-color: black;
+}
+p {
+    color: white
+}
+h1 {
+    color: white;
+    text-indent: 10px;
+}
+#topic-form {
+    color: white;
+    text-indent: 5px;
+}
+
