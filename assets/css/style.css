@@ -1,7 +1,11 @@
 button,
 div,
 form,
-input {
+input,
+h1 {
   margin: 10px;
 }
 
+.gif-border {
+    border: 3px solid black;
+}

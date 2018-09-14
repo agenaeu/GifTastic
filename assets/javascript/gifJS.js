@@ -19,6 +19,7 @@ function displayTopicGif() {
 
             // where the gif's will be dumped
             var topicDiv = $("<div class='topic'>");
+           
             // rating of gif
             var rating = results[i].rating;
             console.log(rating);
@@ -35,25 +36,12 @@ function displayTopicGif() {
             $(image).attr("data-still",stillURL);
             $(image).attr("data-animate",imgURL);
             $(image).attr("class","gif");
+            image.addClass("gif-border");
             
             topicDiv.append(image);
             // put gif into topic-view div
             $("#topic-view").prepend(topicDiv);
-            $(".gif").on("click",function(event){
-                console.log(this);
-                var state = $(this).attr("data-state");
-                console.log(state);
-                if (state === "animate") {
-                    console.log("state was animated");
-                    $(this).attr("src", stillURL);
-                    $(this).attr("data-state","still");
-                }
-                else{
-                    console.log("state was still");
-                    $(this).attr("src", imgURL);
-                    $(this).attr("data-state","animate");
-                }
-            });
+            
         }
         
     });
@@ -67,6 +55,8 @@ function renderButtons() {
         var addButton = $("<button>");
         //add a class to your button 
         addButton.addClass("topic-btn");
+        // add button class for bootstrap
+        addButton.addClass("btn btn-primary");
         // adding a data- "attribute name" with a value of the topic at index i
         addButton.attr("data-name", topics[i]);
         // gives buttons a label
@@ -90,4 +80,15 @@ $("#add-topic").on("click", function (event) {
 // shows initial buttons
 renderButtons();
 $(document).on("click", ".topic-btn", displayTopicGif);
+$(document.body).on('click', '.gif', function() {
+  var src = $(this).attr('src');
+  var static = $(this).attr('data-still');
+  var animated = $(this).attr('data-animate');
+  console.log(src, static, animated);
+  if (src === animated) {
+    $(this).attr('src', static);
+  } else {
+    $(this).attr('src', animated);
+  }
+});
 
